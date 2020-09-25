@@ -74,6 +74,7 @@ const Formulario = ({setResumen, setLoading}) => {
     //cuando el usuario presiona submit
     const handleSubmit = (e) => {
         e.preventDefault();
+
         
 
         if( marca.trim() === '' || year.trim() === '' || plan.trim() === '' ) {
@@ -81,6 +82,15 @@ const Formulario = ({setResumen, setLoading}) => {
             return;
         }
         setError(false);
+        //muestro resumen
+        setResumen({
+            cotizacion : 0,
+            datos: {
+                marca:"",
+                year: "",
+                plan: ""
+            }
+        })
 
         //Una base de 2000
         let resultado = 2000;
