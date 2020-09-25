@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Formulario from './components/Formulario';
 import Resumen from './components/Resumen';
 import Resultado from './components/Resultado';
+import Spinner from './components/Spinner';
 import styled from '@emotion/styled';
 
 
@@ -27,7 +28,11 @@ function App() {
     }
   });
   
+  const [loading, setLoading] = useState(false);
+  
   const {cotizacion,datos} = resumen; //esto es para hacer un  ternario y si tiene datos el resumen lo muestro, entonces no
+
+
 
   return (
     <Fragment>
@@ -38,7 +43,11 @@ function App() {
       <ContenedorFormulario>
         <Formulario
           setResumen={setResumen}
+          setLoading = {setLoading}
         ></Formulario>
+        
+        { loading? <Spinner></Spinner> : null }
+
         <Resumen
           datos={datos}
         ></Resumen>

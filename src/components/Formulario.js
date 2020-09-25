@@ -50,7 +50,7 @@ const Error = styled.div`
     text-align:center;
 `;
 
-const Formulario = ({setResumen}) => {
+const Formulario = ({setResumen, setLoading}) => {
 
     const [datos, setDatos] = useState({
         marca: '',
@@ -104,10 +104,19 @@ const Formulario = ({setResumen}) => {
         resultado = parseFloat( incrementoPlan * resultado ).toFixed(2);
 
         //total
-        setResumen({
-            cotizacion : resultado,
-            datos
-        })
+
+        setLoading(true);
+
+        setTimeout(() => {
+            //paso el loading a false para que desaparezca
+            setLoading(false);
+            
+            //muestro resumen
+            setResumen({
+                cotizacion : resultado,
+                datos
+            })
+        }, 3000);
 
     };
 
