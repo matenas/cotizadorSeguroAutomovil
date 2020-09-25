@@ -2,6 +2,7 @@ import React, {Fragment, useState} from 'react';
 import Header from './components/Header';
 import Formulario from './components/Formulario';
 import Resumen from './components/Resumen';
+import Resultado from './components/Resultado';
 import styled from '@emotion/styled';
 
 
@@ -26,7 +27,7 @@ function App() {
     }
   });
   
-  const {datos} = resumen; //esto es para hacer un  ternario y si tiene datos el resumen lo muestro, entonces no
+  const {cotizacion,datos} = resumen; //esto es para hacer un  ternario y si tiene datos el resumen lo muestro, entonces no
 
   return (
     <Fragment>
@@ -41,6 +42,9 @@ function App() {
         <Resumen
           datos={datos}
         ></Resumen>
+        <Resultado
+          cotizacion= {cotizacion}
+        ></Resultado>
       </ContenedorFormulario>
       </Contenedor>
     </Fragment>
