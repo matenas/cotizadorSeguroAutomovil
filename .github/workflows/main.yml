@@ -3,26 +3,12 @@ on:
   issues:
     types: [opened]
 jobs:
-  webhook:
+  call-api:
     runs-on: ubuntu-latest
     steps:
       - name: Send request to external API
-        uses: actions/github-script@v4
-        with:
-          script: |
-            const axios = require('axios');
-            const issue = context.issue;
-            const payload = {
-              title: issue.title,
-              body: issue.body,
-              url: issue.html_url
-            };
-            const headers = {
-              'Content-Type': 'application/json',
-              'x-apikey': '271570cc55d3472bac1a4a7c003fafd7'
-            };
-            await axios.get('https://desa.apipartner.bci.cl/api/version', { headers: headers });
-
+        run: |
+          curl -X GET -H "Content-Type: application/json" -H "x-apikey: 271570cc55d3472bac1a4a7c003fafd7" https://desa.apipartner.bci.cl/api/version
 
 
 
