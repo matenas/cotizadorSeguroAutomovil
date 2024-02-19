@@ -8,7 +8,7 @@ jobs:
     steps:
       - name: Send request to external API
         run: |
-          curl -X GET -H "Content-Type: application/json" -H "x-apikey: 271570cc55d3472bac1a4a7c003fafd7" https://desa.apipartner.bci.cl/api/version
+          curl -X GET -H "Content-Type: application/json"  https://desa.apipartner.bci.cl/api/version
 
 
 
